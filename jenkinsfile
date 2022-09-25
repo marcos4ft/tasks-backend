@@ -1,0 +1,10 @@
+pipeline{
+    agent any
+    stages{
+        stage('Just TEST'){
+            steps{
+                bat echo 'OK'
+            }
+        }
+    }
+}
