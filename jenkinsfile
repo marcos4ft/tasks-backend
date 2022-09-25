@@ -22,4 +22,15 @@ pipeline{
             }
         }
     }
+    post{
+     	always{
+            emailext attachLog: true, body: 'Veja o log', subject: 'Build $BUILD_NUMBER finalizado', to: 'marcos4ft+jenkins@gmail.com'
+        }
+        unsuccessful{
+            emailext attachLog: true, body: 'Veja o log', subject: 'Build $BUILD_NUMBER falhou', to: 'marcos4ft+jenkins@gmail.com'
+        }
+        fixed{
+            emailext attachLog: true, body: 'Veja o log', subject: 'Build está funcionando', to: 'marcos4ft+jenkins@gmail.com'
+        }
+    }
 }
